@@ -1,0 +1,12 @@
+<section class="chats-rows" xmlns:v-on="http://www.w3.org/1999/xhtml">
+  <div v-for="people in peoples" class="card w-25" v-on:click="resetCompMsg()">
+    <div class="card-header">{{people.name}}</div>
+    <div class="card-block">
+      <div style="height: 200px; overflow: auto">
+        <p v-for="text in texts" v-if="text && text.name === people.name">{{text.text}}</p>
+      </div>
+      <input v-on:blur="stopFocus" @keyup.enter="msg($event.target, people.name)" class="form-control" type="text" :placeholder="'write To '+ people.name">
+    </div>
+  </div>
+</section>
+

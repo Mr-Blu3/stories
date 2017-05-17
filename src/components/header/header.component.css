@@ -1,0 +1,20 @@
+.header
+{
+  background: #2d72d9;
+}
+
+.header ul li a p
+{
+  font-size: 16px;
+  line-height: 50px;
+  margin:0;
+  display: block;
+}
+
+.dots {
+  font-size: 25px !important;
+}
+
+.header .router-link-exact-active {
+  font-weight: 900;
+}

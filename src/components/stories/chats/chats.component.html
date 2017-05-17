@@ -1,0 +1,9 @@
+<section class="body-chats">
+  {{missMsg}}
+  <chats-rows v-bind:peoples="activePeople" v-on:missMsg="missMsgCount($event)"></chats-rows>
+  <sort-rows header="Active Chats" v-bind:missMsgs="missMsg" v-bind:peoples="activePeople"></sort-rows>
+  <sort-rows header="Recent Chats" v-bind:missMsgs="missMsg" v-bind:recentChat="recentChat"></sort-rows>
+  <sort-rows header="Online" v-bind:missMsgs="missMsg" v-bind:peoples="peoples" v-on:peopleChatt="addSingleChat($event)"></sort-rows>
+</section>
+
+
