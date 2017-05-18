@@ -1,5 +1,5 @@
 <section class="chats-rows" xmlns:v-on="http://www.w3.org/1999/xhtml">
-  <div v-for="people in peoples" class="card w-25" v-on:click="resetCompMsg()">
+  <div v-for="people in peoples" class="card w-25" v-on:click="resetCompMsg(people.name)">
     <div class="card-header">{{people.name}}</div>
     <div class="card-block">
       <div style="height: 200px; overflow: auto">

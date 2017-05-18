@@ -8,7 +8,7 @@ export default  {
     return {
       texts: [{}],
       message: '',
-      seenMsg: [{}],
+      seenMsg: [{name: '', missed: []}],
       seenBool: false
     }
   },
@@ -21,7 +21,19 @@ export default  {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
 
         if(this.seenBool) {
-          this.seenMsg.push({name: pers, missed: comp});
+          let checkMsg = this.seenMsg.some(data => {
+            console.log(data)
+            return data.name === pers
+          });
+
+          if(!checkMsg) this.seenMsg.push({name: pers, missed: []});
+
+          this.seenMsg.forEach(data => {
+            if(data.name == pers) {
+              data.missed.push(comp);
+            }
+          });
+
           this.$emit('missMsg', this.seenMsg)
         }
 
@@ -30,9 +42,9 @@ export default  {
 
       e_msg.value = '';
     },
-    resetCompMsg: function() {
+    resetCompMsg: function(name) {
       this.seenBool = false;
-      this.seenMsg = [];
+      this.seenMsg = this.seenMsg.filter(data => data.name != name);
       this.$emit('missMsg', this.seenMsg);
     },
 

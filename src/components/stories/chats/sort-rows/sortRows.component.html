@@ -1,4 +1,5 @@
 <div xmlns:v-on="http://www.w3.org/1999/xhtml">
+  {{missMsgs}}
   <table class="table w-25 bg-white" style="margin: 0;">
     <thead>
       <tr><th style="background: #f8f8f8;" colspan="4" class="text-uppercase"><small>{{header}}</small></th></tr>
@@ -9,7 +10,7 @@
           <p>{{people.logo}}</p>
         </td>
         <td><p><small>{{people.name}}</small></p><p>{{people.activety}}</p></td>
-        <td><p v-for="missMsg in missMsgs" v-if="missMsg.name === people.name">{{missMsgs.length}cd ..}</p></td>
+        <td><p v-for="missMsg in missMsgs" v-if="missMsg.name === people.name">{{missMsg.missed.length}}</p></td>
         <td><i class="fa fa-caret-right" aria-hidden="true"></i></td>
       </tr>
     </tbody>
