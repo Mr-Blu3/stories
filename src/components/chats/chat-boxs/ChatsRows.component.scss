@@ -1,0 +1,13 @@
+.chats-rows {
+  position: fixed;
+  bottom: 0;
+  right: 20%;
+  display: table-cell;
+  z-index: 1;
+}
+
+.chatBox {
+  margin: 0 10px;
+  vertical-align: bottom;
+  display: inline-block;
+}

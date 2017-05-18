@@ -1,0 +1,20 @@
+<section class="chats-rows card-group" xmlns:v-on="http://www.w3.org/1999/xhtml">
+  <div class="chatBox" v-for="people in peoples">
+    <div class="card" v-on:click="resetCompMsg(people.name)">
+      <div class="card-header p-1 rounded-0 bg-blue text-white">
+        <p class="float-left m-0 mr-5"><small>{{people.name}}</small></p>
+        <div class="float-right">
+          <a href="javascript:void(true)" v-on:click="hideBox(people)" class="fa text-white fa-angle-double-down mr-1"></a>
+          <a href="javascript:void(true)" v-on:click="remove(people)" class="fa text-white fa-times-circle"></a>
+        </div>
+      </div>
+      <div class="card-block" v-if="people.hideChatBox">
+        <div style="height: 200px; overflow: auto">
+          <p v-for="text in texts" v-if="text && text.name === people.name">{{text.text}}</p>
+        </div>
+        <input v-on:blur="stopFocus" @keyup.enter="msg($event.target, people.name)" class="rounded-0 form-control" type="text" :placeholder="'write To '+ people.name">
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,10 +1,8 @@
 import {MOCK_STORIES} from "./../../Mock_Data/MOCK_STORIES";
-import ChatComponent from "./chats/index.vue";
 
 export default {
   name: 'body',
   props: [],
-  components: {ChatComponent: 'chat-component', ChatComponent},
   mounted() {
 
   },

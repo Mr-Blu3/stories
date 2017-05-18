@@ -1,18 +1,26 @@
 export default  {
   name: 'chats-rows',
   props: ['peoples'],
-  mounted() {
+  mounted() {},
 
-  },
   data() {
     return {
       texts: [{}],
       message: '',
       seenMsg: [{name: '', missed: []}],
-      seenBool: false
+      seenMsgBool: false,
+      hideChatBox: {}
     }
   },
   methods: {
+    hideBox: function(people) {
+      people.hideChatBox = people.hideChatBox ? false : true;
+      this.$emit('hideBodyBox', people)
+    },
+    remove: function(people) {
+      this.$emit('removePeople', people)
+    },
+
     msg: function(e_msg, pers) {
       let msg = e_msg.value;
       this.texts.push({name: pers,text: msg});
@@ -20,9 +28,8 @@ export default  {
       setTimeout((msg) => {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
 
-        if(this.seenBool) {
+        if(this.seenMsgBool) {
           let checkMsg = this.seenMsg.some(data => {
-            console.log(data)
             return data.name === pers
           });
 
@@ -42,14 +49,15 @@ export default  {
 
       e_msg.value = '';
     },
+
     resetCompMsg: function(name) {
-      this.seenBool = false;
+      this.seenMsgBool = false;
       this.seenMsg = this.seenMsg.filter(data => data.name != name);
       this.$emit('missMsg', this.seenMsg);
     },
 
     stopFocus: function() {
-      this.seenBool = true;
+      this.seenMsgBool = true;
     }
   },
   computed: {

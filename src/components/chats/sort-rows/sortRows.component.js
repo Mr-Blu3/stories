@@ -1,9 +1,7 @@
 export default  {
   name: 'sort-rows',
   props: ['header', 'peoples', 'missMsgs'],
-  mounted() {
-
-  },
+  mounted() {},
   data() {
     return {
     }
