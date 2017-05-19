@@ -15,10 +15,7 @@
         <table class="table bg-white">
           <tbody>
             <tr v-for="story, key in stories">
-
-              <td id="story-logo">
-                <img v-if="story.logo" class="circleBase" :src="story.logo" />
-              </td>
+              <td id="story-logo"><img v-if="story.logo" class="circleBase" :src="story.logo" /></td>
 
               <td class="text-primary text-center">
                 <strong>
@@ -29,9 +26,7 @@
 
               <td>
                 <h6 class="align-middle m-2">{{story.headline}} <small>(thestocks.im)</small></h6>
-                <p class="colorGrey m-2" style="font-size: 11px;">
-                  <u>0 Comments</u> &nbsp; • &nbsp; 0 hours ago from Ipsum loren, Sweden, usepanda.com || panda network
-                </p>
+                <p class="colorGrey m-2" style="font-size: 11px;"><u>0 Comments</u> &nbsp; • &nbsp; 0 hours ago from Ipsum loren, Sweden, usepanda.com || panda network</p>
               </td>
             </tr>
           </tbody>
@@ -44,11 +39,6 @@
 <script src="./stories.component.js"></script>
 
 <style>
-  .story-header
-  {
-    background: #fff;
-  }
-
   .bg-grey
   {
     background: #f8f8f8;
@@ -58,8 +48,20 @@
     color: #4b5257;
   }
 
-  #story-logo {
+  .story-header
+  {
+    background: #fff;
+  }
 
+  .rounded-0
+  {
+    border-radius: 0 !important;
+  }
+
+  .active-filter
+  {
+    font-weight: 500;
+    color: #2d72d9 !important;
   }
 
   #story-logo img {
@@ -102,22 +104,11 @@
     margin:5px 40px 0 0;
   }
 
-  .rounded-0
-  {
-    border-radius: 0 !important;
-  }
-
   .story-header i
   {
     font-size: 12px;
     margin-left: 3px;
     opacity: 0.5;
     color: #636C71;
-  }
-
-  .active-filter
-  {
-    font-weight: 500;
-    color: #2d72d9 !important;
   }
 </style>

@@ -5,11 +5,12 @@ export default  {
 
   data() {
     return {
-      texts: [{}],
+      texts: [],
       message: '',
-      seenMsg: [{name: '', missed: []}],
+      seenMsg: [],
       seenMsgBool: false,
-      hideChatBox: {}
+      hideChatBox: {},
+      key: ''
     }
   },
   methods: {
@@ -18,46 +19,59 @@ export default  {
       this.$emit('hideBodyBox', people)
     },
     remove: function(people) {
+      this.seenMsg = this.seenMsg.filter(data => data.name != people);
       this.$emit('removePeople', people)
     },
 
     msg: function(e_msg, pers) {
+      let fullPers = pers;
       let msg = e_msg.value;
-      this.texts.push({name: pers,text: msg});
+
+      this.texts.push({name: pers.name, textUser: msg, pers: pers});
+
+      if(pers.activety === 'busy') return e_msg.value = '';
+
 
       setTimeout((msg) => {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
 
-        if(this.seenMsgBool) {
-          let checkMsg = this.seenMsg.some(data => {
-            return data.name === pers
-          });
+        if(this.seenMsgBool) this.checkMissed(this.seenMsg.some(data => data.name === pers), pers, comp);
 
-          if(!checkMsg) this.seenMsg.push({name: pers, missed: []});
-
-          this.seenMsg.forEach(data => {
-            if(data.name == pers) {
-              data.missed.push(comp);
-            }
-          });
-
-          this.$emit('missMsg', this.seenMsg)
-        }
-
-        this.texts.push({name: pers, text: comp});
+        this.texts.push({name: pers.name, logo: pers.logo, textComp: comp});
+        this.updated();
       }, 2000, msg);
 
+      this.updated();
       e_msg.value = '';
     },
 
-    resetCompMsg: function(name) {
-      this.seenMsgBool = false;
-      this.seenMsg = this.seenMsg.filter(data => data.name != name);
-      this.$emit('missMsg', this.seenMsg);
+    resetCompMsg: function(pers, key) {
+      if(this.key === key) {
+        this.seenMsgBool = false;
+        this.seenMsg = this.seenMsg.filter(data => data.name != pers);
+        this.$emit('missMsg', this.seenMsg);
+      }
     },
 
-    stopFocus: function() {
+    stopFocus: function(e, key) {
+      this.key = key;
       this.seenMsgBool = true;
+    },
+
+    checkMissed: function(checkMsg, pers, comp) {
+      if(!checkMsg) this.seenMsg.push({name: pers, missed: []});
+
+      this.seenMsg.forEach(data => {
+        if(data.name == pers) {
+          data.missed.push(comp);
+        }
+      });
+
+      this.$emit('missMsg', this.seenMsg)
+    },
+    updated: function() {
+      var el = document.getElementById("scr");
+      el.scrollTop = el.scrollHeight - el.getBoundingClientRect().height + 202;
     }
   },
   computed: {

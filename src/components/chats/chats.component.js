@@ -43,7 +43,6 @@ export default  {
     },
 
     hideBodyBox: function(person) {
-      console.log(person)
       this.activePeople = this.activePeople.map(data => {
         if(data == person) data = person;
         return data;
@@ -51,7 +50,7 @@ export default  {
     },
 
     missMsgCount: function (missMsg) {
-      this.missMsg = missMsg
+      this.missMsg = missMsg;
     },
 
     removePeople: function(person) {
@@ -67,6 +66,12 @@ export default  {
 
       if(checkBool) this.recentChat.unshift(person);
     },
+
+    resetMsgs: function(person) {
+      this.missMsg = this.missMsg.filter(data => {
+        return data.name !== person
+      });
+    }
   },
   computed: {}
 }

@@ -1,63 +1,62 @@
 export const MOCK_CHATT =
   [{
-    logo: 'default',
+    logo: 'static/paron.png',
     name: 'Pontus Pettersson',
     activety: 'online'
-  },
-    {
-      logo: 'default',
-      name: 'Kristoffer Pettersson',
-      activety: 'online'
-    },{
-    logo: 'default',
+  }, {
+    logo: 'static/paron.png',
+    name: 'Kristoffer Pettersson',
+    activety: 'online'
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'busy'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/paron.png',
     name: 'Ipsum loren absoulum',
     activety: 'online'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'offline'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'offline'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'offline'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'busy'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'busy'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/paron.png',
     name: 'Ipsum loren absoulum',
     activety: 'online'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/paron.png',
     name: 'Ipsum loren absoulum',
     activety: 'online'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/paron.png',
     name: 'Ipsum loren absoulum',
     activety: 'online'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'busy'
-  },{
-    logo: 'default',
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
-    activety: 'away'
-  },{
-    logo: 'default',
+    activety: 'busy'
+  }, {
+    logo: 'static/logo.png',
     name: 'Ipsum loren absoulum',
     activety: 'offline'
   }];

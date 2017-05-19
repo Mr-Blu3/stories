@@ -2,17 +2,13 @@ export default  {
   name: 'sort-rows',
   props: ['header', 'peoples', 'missMsgs'],
   mounted() {},
-  data() {
-    return {
-    }
-  },
+  data() {return {}},
   methods: {
     peopleChatt: function(people) {
       this.$emit('peopleChatt', people);
-    },
+      this.$emit('resetMsgs', people);
+    }
   },
-  computed: {
-
-  }
+  computed: {}
 }
 

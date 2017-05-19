@@ -11,11 +11,7 @@
   export default {
     name: 'app',
     components: {'init-root': InitRoot},
-    data() {
-      return {
-
-      }
-    },
+    data() {return {}},
 
   }
 </script>

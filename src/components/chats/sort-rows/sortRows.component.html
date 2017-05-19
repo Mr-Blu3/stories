@@ -1,25 +1,29 @@
-<div xmlns:v-on="http://www.w3.org/1999/xhtml">
+<div id="sort-rows" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="card rounded-0">
     <div class="card-header bg-grey rounded-0 text-uppercase text-black" style="font-size: 9px">
       <strong>{{header}}</strong>
     </div>
+
     <div class="card-block">
       <div style="cursor: pointer" v-for="people in peoples" v-on:click="peopleChatt(people)">
         <div class="clearfix">
-          <div class="float-left">
-            <p class="ml-2 mr-2">{{people.logo}}</p>
+          <div class="align-block">
+            <div class="ml-2 mr-2 align-middle">
+              <img class="rounded-circle" :src="people.logo">
+            </div>
           </div>
 
-          <div class="float-left">
-            <p class="m-0"><small><strong>{{people.name}}</strong></small></p>
-            <p class="colorGrey m-0" style="font-size: 10px;"><span style="color: red; font-size: 20px">•</span>&nbsp;{{people.activety}}</p>
+          <div class="align-block align-middle mt-2">
+            <p class="m-0" style="font-size: 11px"><small><strong>{{people.name}}</strong></small></p>
+            <div class="align-block rounded-circle align-top mt-1" v-bind:class="{green: people.activety === 'online', red: people.activety === 'busy'}" style="font-size: 20px; height: 4px; width: 4px"></div>
+            <div class="align-block align-top mt-1" style="font-size: 8px; color: grey">{{people.activety}}</div>
           </div>
 
-          <div>
-            <div class="float-right ml-2 mr-3 mt-3"><i class="fa fa-caret-right"></i></div>
-            <div class="float-right text-center mt-3 text-white bg-blue circleBase small" style="height: 20px; width: 20px;" v-for="missMsg in missMsgs" v-if="missMsg.name === people.name">
+          <div class="align-block float-right">
+            <div class="text-center align-middle text-white bg-blue circleBase small align-block" style="height: 20px; width: 20px;" v-for="missMsg in missMsgs" v-if="missMsg.name === people">
               {{missMsg.missed.length}}
             </div>
+            <div id="lh" class="align-block ml-1 align-middle mr-3"><i class="fa fa-caret-right"></i></div>
           </div>
         </div>
         <hr />
