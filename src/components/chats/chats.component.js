@@ -1,11 +1,11 @@
 import SortRows from './sort-rows/index.vue';
-import ChatsRows from './chat-boxs/index.vue';
+import ChattBoxes from './chatt-boxes/index.vue';
 import {MOCK_CHATT} from "./../../Mock_Data/MOCK_CHATT";
 
 export default  {
   name: 'body-chats',
   props: [],
-  components: {'sort-rows': SortRows, 'chats-rows': ChatsRows},
+  components: {'sort-rows': SortRows, 'chats-rows': ChattBoxes},
   mounted() {
 
   },
