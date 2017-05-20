@@ -24,17 +24,13 @@ export default  {
     },
 
     msg: function(e_msg, pers) {
-      let fullPers = pers;
       let msg = e_msg.value;
 
       this.texts.push({name: pers.name, textUser: msg, pers: pers});
 
-      if(pers.activety === 'busy') return e_msg.value = '';
-
-
       setTimeout((msg) => {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
-
+        if(pers.activety === 'busy') comp = "Sorry I'm busy!";
         if(this.seenMsgBool) this.checkMissed(this.seenMsg.some(data => data.name === pers), pers, comp);
 
         this.texts.push({name: pers.name, logo: pers.logo, textComp: comp});
