@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div>
     <div class="story-header align-nav">
       <div class="container">
@@ -26,7 +26,25 @@
 
               <td>
                 <h6 class="align-middle m-2">{{story.headline}} <small>(thestocks.im)</small></h6>
-                <p class="colorGrey m-2" style="font-size: 11px;"><u>0 Comments</u> &nbsp; • &nbsp; 0 hours ago from Ipsum loren, Sweden, usepanda.com || panda network</p>
+                <p class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;"><u>0 Comments</u> &nbsp; • &nbsp; 0 hours ago from Ipsum loren, Sweden, usepanda.com || panda network</p>
+                <div v-bind:class="{slidedown: story.showComments, sliderUp: !story.showComments}">
+                  <div v-if="story.showComments">
+                    <ul>
+                      <li v-if="story.iComment" v-for="comment in story.iComment">
+                        {{comment.name}}
+                        {{comment.country}}
+                        {{comment.website}}
+                        {{comment.network}}
+                      </li>
+                    </ul>
+                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.name">
+                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.country">
+                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.website">
+                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.net">
+
+                    <button class="pointer btn btn-primary" @click="addComment(story)">Add Comment</button>
+                  </div>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -38,77 +56,4 @@
 
 <script src="./stories.component.js"></script>
 
-<style>
-  .bg-grey
-  {
-    background: #f8f8f8;
-  }
-
-  .colorGrey {
-    color: #4b5257;
-  }
-
-  .story-header
-  {
-    background: #fff;
-  }
-
-  .rounded-0
-  {
-    border-radius: 0 !important;
-  }
-
-  .active-filter
-  {
-    font-weight: 500;
-    color: #2d72d9 !important;
-  }
-
-  #story-logo img {
-    position: absolute;
-    margin-left: -38px;
-    margin-top: -21px;
-    width: 55px;
-    height: 55px;
-  }
-
-  .stories-lines
-  {
-    background: #eceef1;
-    border: 1px #636c72;
-  }
-
-  .stories-lines table {
-    max-width: 1200px;
-  }
-
-  .stories-lines td {
-    vertical-align: middle;
-    white-space: pre-line;
-    word-wrap: break-word;
-    max-width: 1100px;
-  }
-
-  .story-header ul
-  {
-    margin: 0;
-  }
-  .story-header ul li p
-  {
-    color: #4b5257;
-    margin-bottom: 0;
-  }
-
-  .story-header ul li a
-  {
-    margin:5px 40px 0 0;
-  }
-
-  .story-header i
-  {
-    font-size: 12px;
-    margin-left: 3px;
-    opacity: 0.5;
-    color: #636C71;
-  }
-</style>
+<style src="./stories.component.css"></style>
