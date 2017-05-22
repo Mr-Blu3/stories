@@ -26,23 +26,34 @@
 
               <td>
                 <h6 class="align-middle m-2">{{story.headline}} <small>(thestocks.im)</small></h6>
-                <p class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;"><u>0 Comments</u> &nbsp; • &nbsp; 0 hours ago from Ipsum loren, Sweden, usepanda.com || panda network</p>
-                <div v-bind:class="{slidedown: story.showComments, sliderUp: !story.showComments}">
-                  <div v-if="story.showComments">
-                    <ul>
-                      <li v-if="story.iComment" v-for="comment in story.iComment">
-                        {{comment.name}}
-                        {{comment.country}}
-                        {{comment.website}}
-                        {{comment.network}}
-                      </li>
-                    </ul>
-                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.name">
-                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.country">
-                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.website">
-                    <input @keyup.enter="addComment(story)" class="form-control" type="text" v-model="commentStore.net">
+                <div v-if="story.iComment" class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;">
+                    <u>Comments: {{story.iComment.length}}</u> &nbsp; • &nbsp;{{story.iComment[0].date}} From: {{story.iComment[0].name}}, {{story.iComment[0].country}}, {{story.iComment[0].website}} || {{ story.iComment[0].network }}
+                </div>
+                <p v-else class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;"><u>Be first to send a comment</u></p>
 
-                    <button class="pointer btn btn-primary" @click="addComment(story)">Add Comment</button>
+                <div v-bind:class="{slidedown: story.showComments, sliderUp: !story.showComments}">
+
+                  <div v-if="story.showComments">
+                    <table class="table table-striped">
+                      <tbody v-if="story.iComment" v-for="comment in story.iComment">
+                        <tr class="text-truncate">
+                          <td class="align-top" style="width: 200px;"><label>Name:</label> {{comment.name}}</td>
+                          <td class="align-top"><label class="mr-2">Website: Easy.pets.se</label> </td>
+                          <td class="align-top"><label>Country: Sweden</label></td>
+                          <td class="align-top"><label>Network: Banhoff</label></td>
+                        </tr>
+                        <tr><td colspan="4">Comment: {{comment.comment}}</td></tr>
+                      </tbody>
+                    </table>
+
+                    <div v-if="story.iComment"><hr/></div>
+                    <div class="mt-5 mb-5">
+                      <label>Send a comment</label>
+                      <input @keyup.enter="addComment(story)" placeholder="Name" class="form-control mb-2" type="text" v-model="commentStore.name">
+                      <input @keyup.enter="addComment(story)" placeholder="Website" class="form-control mb-2" type="text" v-model="commentStore.website">
+                      <textarea @keyup.enter="addComment(story)" :placeholder="'Send a comment To: ' + story.name" class="form-control mb-2" v-model="commentStore.comment"></textarea>
+                      <button class="pointer btn btn-primary" @click="addComment(story)">Add Comment</button>
+                    </div>
                   </div>
                 </div>
               </td>

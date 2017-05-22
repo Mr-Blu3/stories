@@ -15,7 +15,7 @@ export default {
         {name: 'Badges', arrow: 'fa fa-caret-down'}
       ],
       stories: MOCK_STORIES,
-      commentStore: {name: '', country: '', website: '', net: ''}
+      commentStore: {name: '', website: '', comment: ''}
     }
   },
   methods: {
@@ -42,20 +42,9 @@ export default {
       this.stories = this.stories.map(data => {
         if(data === story) {
           if(!data.iComment) {
-            data.iComment = [{
-              name: this.commentStore.name,
-              country: this.commentStore.country,
-              website: this.commentStore.website,
-              network: this.commentStore.net
-            }];
+            data.iComment = [this.triggComment()];
           } else {
-            data.iComment.unshift({
-              name: this.commentStore.name,
-              country: this.commentStore.country,
-              website: this.commentStore.website,
-              network: this.commentStore.net
-            });
-
+            data.iComment.unshift(this.triggComment());
           }
         }
 
@@ -64,6 +53,21 @@ export default {
       for(let i in this.commentStore) {
         this.commentStore[i] = ''
       }
-    }
-  }, computed: {}
+    },
+    triggComment() {
+      let date = ('0' + new Date().getDate()).slice(-2);
+      let month = ('0' + (new Date().getMonth() + 1)).slice(-2);
+      let year = new Date().getFullYear();
+
+      return {
+        name: this.commentStore.name,
+        comment: this.commentStore.comment,
+        website: this.commentStore.website,
+        date: year +' '+ month +' '+ date,
+        country: 'Sweden',
+        network: 'Default'
+      };
+    },
+  },
+  computed: {}
 }
