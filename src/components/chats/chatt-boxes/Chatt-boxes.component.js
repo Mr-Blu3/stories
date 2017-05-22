@@ -1,6 +1,6 @@
 export default  {
   name: 'chats-rows',
-  props: ['peoples', 'resetMissMsgs'],
+  props: ['peoples'],
   mounted() {},
 
   data() {
@@ -20,7 +20,6 @@ export default  {
     },
     remove: function(people) {
       this.seenMsg = this.seenMsg.filter(data => data.name != people);
-      this.seenMsg = this.resetMissMsgs;
       this.$emit('removePeople', people)
     },
 
@@ -45,7 +44,6 @@ export default  {
       if(this.key === key) {
         this.seenMsgBool = false;
         this.seenMsg = this.seenMsg.filter(data => data.name != pers);
-        this.seenMsg = this.resetMissMsgs;
         this.$emit('missMsg', this.seenMsg);
       }
     },
@@ -63,7 +61,6 @@ export default  {
           data.missed.push(comp);
         }
       });
-      this.seenMsg = this.resetMissMsgs;
       this.$emit('missMsg', this.seenMsg)
     }
   },

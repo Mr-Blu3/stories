@@ -1,7 +1,6 @@
 <section class="body-chats row">
   <chat-boxes
     v-bind:peoples="activePeople"
-    v-bind:resetMissMsgs="resetMissMsgs"
     v-on:removePeople="removePeople($event)"
     v-on:hideBodyBox="hideBodyBox($event)"
     v-on:missMsg="missMsgCount($event)">

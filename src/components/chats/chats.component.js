@@ -14,8 +14,7 @@ export default  {
       peoples: this.sort(MOCK_CHATT),
       activePeople: [],
       recentChat: [],
-      missMsgs: [],
-      resetMissMsgs: []
+      missMsgs: []
     };
   },
   methods: {
@@ -69,7 +68,7 @@ export default  {
     },
 
     resetMsgs(person) {
-      this.resetMissMsgs = this.missMsgs.filter(data => {
+      this.missMsgs = this.missMsgs.filter(data => {
         return data.name !== person
       });
     }
