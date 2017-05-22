@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="08a56774-6c1b-437f-9674-da276fdb3da9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html" afterPath="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/chats/chats.component.html" afterPath="$PROJECT_DIR$/src/components/chats/chats.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/chats/chats.component.js" afterPath="$PROJECT_DIR$/src/components/chats/chats.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js" afterPath="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,21 +20,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Chatt-boxes.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html">
+      <file leaf-file-name="Chatt-boxes.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="183" lean-forward="false" selection-start-line="22" selection-start-column="179" selection-end-line="22" selection-end-column="183" />
+            <state relative-caret-position="648">
+              <caret line="36" column="71" lean-forward="false" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chatt-boxes.component.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js">
+      <file leaf-file-name="Chatt-boxes.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="36">
+              <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chats.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/chats/chats.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -65,8 +76,10 @@
       <find>some</find>
       <find>find</find>
       <find>resetMsgs</find>
-      <find>msg</find>
       <find>name</find>
+      <find>msg</find>
+      <find>resetCompMsg</find>
+      <find>missMsgCount</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,16 +124,13 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.scss" />
         <option value="$PROJECT_DIR$/src/components/chats/chats.component.scss" />
-        <option value="$PROJECT_DIR$/src/components/chats/chats.component.html" />
         <option value="$PROJECT_DIR$/src/components/chats/chat-boxs/ChatsRows.component.scss" />
         <option value="$PROJECT_DIR$/src/components/chats/chat-boxs/ChatsRows.component.html" />
-        <option value="$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.js" />
         <option value="$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.html" />
         <option value="$PROJECT_DIR$/src/components/header/header.component.css" />
         <option value="$PROJECT_DIR$/src/Mock_Data/MOCK_STORIES.js" />
         <option value="$PROJECT_DIR$/src/components/chats/chat-boxs/ChatsRows.component.js" />
         <option value="$PROJECT_DIR$/src/components/chats/chat-boxs/index.vue" />
-        <option value="$PROJECT_DIR$/src/components/chats/chats.component.js" />
         <option value="$PROJECT_DIR$/src/Mock_Data/MOCK_CHATT.js" />
         <option value="$PROJECT_DIR$/src/components/init.vue" />
         <option value="$PROJECT_DIR$/src/router/index.js" />
@@ -130,6 +140,9 @@
         <option value="$PROJECT_DIR$/src/components/stories/index.vue" />
         <option value="$PROJECT_DIR$/src/components/stories/stories.component.js" />
         <option value="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html" />
+        <option value="$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.js" />
+        <option value="$PROJECT_DIR$/src/components/chats/chats.component.js" />
+        <option value="$PROJECT_DIR$/src/components/chats/chats.component.html" />
         <option value="$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js" />
       </list>
     </option>
@@ -726,12 +739,12 @@
       <workItem from="1495013897698" duration="48178000" />
       <workItem from="1495099080073" duration="75084000" />
       <workItem from="1495294786063" duration="15384000" />
-      <workItem from="1495375959652" duration="23751000" />
+      <workItem from="1495375959652" duration="27848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191422000" />
+    <option name="totallyTimeSpent" value="195519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="24" width="1920" height="993" extended-state="6" />
@@ -808,7 +821,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -920,13 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/chats/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1096,8 +1104,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="80" lean-forward="false" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="80" />
+        <state relative-caret-position="396">
+          <caret line="22" column="159" lean-forward="false" selection-start-line="22" selection-start-column="151" selection-end-line="22" selection-end-column="159" />
           <folding />
         </state>
       </provider>
@@ -1105,39 +1113,47 @@
     <entry file="file://$PROJECT_DIR$/src/components/chats/sort-rows/sortRows.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="27" />
+          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/chats/chats.component.html">
+    <entry file="file://$PROJECT_DIR$/src/components/chats/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="116" lean-forward="false" selection-start-line="5" selection-start-column="107" selection-end-line="5" selection-end-column="116" />
+        <state relative-caret-position="36">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/chats/chats.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="69" column="31" lean-forward="false" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+        <state relative-caret-position="270">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html">
+    <entry file="file://$PROJECT_DIR$/src/components/chats/chats.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="183" lean-forward="false" selection-start-line="22" selection-start-column="179" selection-end-line="22" selection-end-column="183" />
+        <state relative-caret-position="54">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="648">
+          <caret line="36" column="71" lean-forward="false" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/chats/chatt-boxes/Chatt-boxes.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="46" />
           <folding />
         </state>
       </provider>

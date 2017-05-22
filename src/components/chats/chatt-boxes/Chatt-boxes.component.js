@@ -1,14 +1,14 @@
 export default  {
   name: 'chats-rows',
-  props: ['peoples'],
+  props: ['peoples', 'resetMissMsgs'],
   mounted() {},
 
   data() {
     return {
       texts: [],
       message: '',
-      seenMsg: [],
       seenMsgBool: false,
+      seenMsg: [],
       hideChatBox: {},
       key: ''
     }
@@ -20,6 +20,7 @@ export default  {
     },
     remove: function(people) {
       this.seenMsg = this.seenMsg.filter(data => data.name != people);
+      this.seenMsg = this.resetMissMsgs;
       this.$emit('removePeople', people)
     },
 
@@ -28,17 +29,15 @@ export default  {
       this.texts.push({textUser: msg, pers: pers});
 
       setTimeout((msg) => {
-
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
+
         if(pers.activety === 'busy') comp = "Sorry I'm busy!";
         if(this.seenMsgBool) this.checkMissed(this.seenMsg.some(data => data.name === pers), pers, comp);
 
         this.texts.push({pers: pers, logo: pers.logo, textComp: comp});
-        this.updated();
-        console.log(this.texts)
+
       }, 2000, msg);
 
-      this.updated();
       e_msg.value = '';
     },
 
@@ -46,6 +45,7 @@ export default  {
       if(this.key === key) {
         this.seenMsgBool = false;
         this.seenMsg = this.seenMsg.filter(data => data.name != pers);
+        this.seenMsg = this.resetMissMsgs;
         this.$emit('missMsg', this.seenMsg);
       }
     },
@@ -63,12 +63,8 @@ export default  {
           data.missed.push(comp);
         }
       });
-
+      this.seenMsg = this.resetMissMsgs;
       this.$emit('missMsg', this.seenMsg)
-    },
-    updated: function() {
-      var el = document.getElementById("scr");
-      el.scrollTop = el.scrollHeight - el.getBoundingClientRect().height + 202;
     }
   },
   computed: {}

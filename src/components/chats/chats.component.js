@@ -5,7 +5,7 @@ import {MOCK_CHATT} from "./../../Mock_Data/MOCK_CHATT";
 export default  {
   name: 'body-chats',
   props: [],
-  components: {'sort-rows': SortRows, 'chats-rows': ChattBoxes},
+  components: {'sort-rows': SortRows, 'chat-boxes': ChattBoxes},
   mounted() {
 
   },
@@ -14,7 +14,8 @@ export default  {
       peoples: this.sort(MOCK_CHATT),
       activePeople: [],
       recentChat: [],
-      missMsg: []
+      missMsgs: [],
+      resetMissMsgs: []
     };
   },
   methods: {
@@ -50,7 +51,7 @@ export default  {
     },
 
     missMsgCount: function (missMsg) {
-      this.missMsg = missMsg;
+      this.missMsgs = missMsg;
     },
 
     removePeople: function(person) {
@@ -67,8 +68,8 @@ export default  {
       if(checkBool) this.recentChat.unshift(person);
     },
 
-    resetMsgs: function(person) {
-      this.missMsg = this.missMsg.filter(data => {
+    resetMsgs(person) {
+      this.resetMissMsgs = this.missMsgs.filter(data => {
         return data.name !== person
       });
     }
