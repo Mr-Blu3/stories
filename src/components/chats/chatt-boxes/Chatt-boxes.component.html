@@ -12,7 +12,7 @@
 
       <div class="card-block" v-if="people.hideChatBox">
         <div id="scr" style="height: 250px; overflow: auto">
-          <div v-for="text in texts" v-if="text.name === people.name">
+          <div v-for="text in texts" v-if="text.pers === people">
             <div class="ml-auto bubble me" v-if="text.textUser"><small>{{text.textUser}}</small></div>
             <img class="rounded-circle m-1" :src="text.logo" v-if="text.textComp">
             <div class="align-block align-middle bubble you" v-if="text.textComp"><small>{{text.textComp}}</small></div>

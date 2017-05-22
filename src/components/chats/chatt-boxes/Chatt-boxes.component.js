@@ -25,16 +25,17 @@ export default  {
 
     msg: function(e_msg, pers) {
       let msg = e_msg.value;
-
-      this.texts.push({name: pers.name, textUser: msg, pers: pers});
+      this.texts.push({textUser: msg, pers: pers});
 
       setTimeout((msg) => {
+
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
         if(pers.activety === 'busy') comp = "Sorry I'm busy!";
         if(this.seenMsgBool) this.checkMissed(this.seenMsg.some(data => data.name === pers), pers, comp);
 
-        this.texts.push({name: pers.name, logo: pers.logo, textComp: comp});
+        this.texts.push({pers: pers, logo: pers.logo, textComp: comp});
         this.updated();
+        console.log(this.texts)
       }, 2000, msg);
 
       this.updated();
@@ -70,8 +71,6 @@ export default  {
       el.scrollTop = el.scrollHeight - el.getBoundingClientRect().height + 202;
     }
   },
-  computed: {
-
-  }
+  computed: {}
 }
 
