@@ -1,6 +1,6 @@
 export default  {
   name: 'chats-rows',
-  props: ['peoples'],
+  props: ['peoples', 'focusPerson', 'keySortRow'],
   mounted() {},
 
   data() {
@@ -10,8 +10,14 @@ export default  {
       seenMsgBool: false,
       seenMsg: [],
       hideChatBox: {},
-      key: ''
+      person: ''
     }
+  },
+  beforeUpdate()
+  {
+    this.peoples.forEach(data => {
+      if(data === this.focusPerson) return console.log(this.$refs.text)
+    })
   },
   methods: {
     hideBox: function(people) {
@@ -40,16 +46,16 @@ export default  {
       e_msg.value = '';
     },
 
-    resetCompMsg: function(pers, key) {
-      if(this.key === key) {
+    resetCompMsg: function(pers) {
+      if(this.person === pers) {
         this.seenMsgBool = false;
         this.seenMsg = this.seenMsg.filter(data => data.name != pers);
         this.$emit('missMsg', this.seenMsg);
       }
     },
 
-    stopFocus: function(e, key) {
-      this.key = key;
+    stopFocus: function(person) {
+      this.person = person;
       this.seenMsgBool = true;
     },
 

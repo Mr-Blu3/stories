@@ -3,9 +3,7 @@ import {MOCK_STORIES} from "./../../Mock_Data/MOCK_STORIES";
 export default {
   name: 'stories',
   props: [],
-  mounted() {
-
-  },
+  mounted() {},
   data() {
     return {
       navFilters: [
@@ -15,8 +13,12 @@ export default {
         {name: 'Badges', arrow: 'fa fa-caret-down'}
       ],
       stories: MOCK_STORIES,
-      commentStore: {name: '', website: '', comment: ''}
+      commentStore: {},
+      infoSender: {}
     }
+  },
+  beforeUpdate() {
+    this.$http.get("http://ipinfo.io").then(data => this.infoSender = {country: data.data.country, org: data.data.org });
   },
   methods: {
     showComments: function(story) {
@@ -26,19 +28,6 @@ export default {
       });
     },
     addComment(story) {
-      /* ToDO: Make a get request to http://ipinfo.io to retive locations
-      * $.get("http://ipinfo.io", function (response) {
-       $("#ip").html("IP: " + response.ip);
-       $("#address").html("Location: " + response.city + ", " + response.region);
-       $("#details").html(JSON.stringify(response, null, 4));
-       }, "jsonp");
-      * */
-      /*this.$http.get('http://jsonplaceholder.typicode.com/users', function(data, status, request){
-        if(status == 200)
-        {
-          console.log(data)
-        }
-      });*/
       this.stories = this.stories.map(data => {
         if(data === story) {
           if(!data.iComment) {
@@ -50,22 +39,27 @@ export default {
 
         return data;
       });
+
       for(let i in this.commentStore) {
         this.commentStore[i] = ''
       }
     },
     triggComment() {
+
       let date = ('0' + new Date().getDate()).slice(-2);
       let month = ('0' + (new Date().getMonth() + 1)).slice(-2);
       let year = new Date().getFullYear();
+
+
+      console.log(this.infoSender)
 
       return {
         name: this.commentStore.name,
         comment: this.commentStore.comment,
         website: this.commentStore.website,
         date: year +' '+ month +' '+ date,
-        country: 'Sweden',
-        network: 'Default'
+        country: this.infoSender.country,
+        org: this.infoSender.org
       };
     },
   },

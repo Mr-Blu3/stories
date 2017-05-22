@@ -6,15 +6,15 @@ export default  {
   name: 'body-chats',
   props: [],
   components: {'sort-rows': SortRows, 'chat-boxes': ChattBoxes},
-  mounted() {
-
-  },
+  mounted() {},
   data() {
     return {
       peoples: this.sort(MOCK_CHATT),
       activePeople: [],
       recentChat: [],
-      missMsgs: []
+      missMsgs: [],
+      focusPerson: {},
+      keySortRows: 0,
     };
   },
   methods: {
@@ -36,7 +36,7 @@ export default  {
       let checkBool = true;
 
       this.activePeople.forEach(data => {
-        if(data == person) return checkBool = false;
+        if(data === person) return checkBool = false;
       });
 
       if(checkBool) this.activePeople.unshift(person);
@@ -71,6 +71,13 @@ export default  {
       this.missMsgs = this.missMsgs.filter(data => {
         return data.name !== person
       });
+    },
+    autoFocus(person)
+    {
+      this.focusPerson = person;
+    },
+    key(key) {
+      this.keySortRows = key;
     }
   },
   computed: {}

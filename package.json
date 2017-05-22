@@ -15,6 +15,7 @@
     "bootstrap-vue": "^0.15.8",
     "font-awesome": "^4.7.0",
     "vue": "^2.2.6",
+    "vue-resource-2": "^0.8.0",
     "vue-router": "^2.3.1",
     "vue-strap": "^1.1.37"
   },

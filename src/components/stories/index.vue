@@ -25,9 +25,9 @@
               </td>
 
               <td>
-                <h6 class="align-middle m-2">{{story.headline}} <small>(thestocks.im)</small></h6>
+                <h6 class="align-middle m-2">{{story.headline}} <small>(Ipsum loren.tu)</small></h6>
                 <div v-if="story.iComment" class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;">
-                    <u>Comments: {{story.iComment.length}}</u> &nbsp; • &nbsp;{{story.iComment[0].date}} From: {{story.iComment[0].name}}, {{story.iComment[0].country}}, {{story.iComment[0].website}} || {{ story.iComment[0].network }}
+                    <u>Comments: {{story.iComment.length}}</u> &nbsp; • &nbsp;{{story.iComment[0].date}} From: {{story.iComment[0].name}}, {{story.iComment[0].country}}, {{story.iComment[0].website}} || {{ story.iComment[0].org }}
                 </div>
                 <p v-else class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;"><u>Be first to send a comment</u></p>
 
@@ -38,9 +38,9 @@
                       <tbody v-if="story.iComment" v-for="comment in story.iComment">
                         <tr class="text-truncate">
                           <td class="align-top" style="width: 200px;"><label>Name:</label> {{comment.name}}</td>
-                          <td class="align-top"><label class="mr-2">Website: Easy.pets.se</label> </td>
-                          <td class="align-top"><label>Country: Sweden</label></td>
-                          <td class="align-top"><label>Network: Banhoff</label></td>
+                          <td class="align-top"><label class="mr-2">Website: {{comment.website}}</label> </td>
+                          <td class="align-top"><label>Country: {{comment.country}}</label></td>
+                          <td class="align-top"><label>Network: {{comment.org}}</label></td>
                         </tr>
                         <tr><td colspan="4">Comment: {{comment.comment}}</td></tr>
                       </tbody>

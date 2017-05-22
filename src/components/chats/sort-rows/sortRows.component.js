@@ -4,9 +4,11 @@ export default  {
   mounted() {},
   data() {return {}},
   methods: {
-    peopleChatt: function(people) {
+    peopleChatt: function(people, key) {
       this.$emit('peopleChatt', people);
       this.$emit('resetMsgs', people);
+      this.$emit('focus', people);
+      this.$emit('keySort', key);
     }
   },
   computed: {}

@@ -5,7 +5,7 @@
     </div>
 
     <div class="card-block">
-      <div style="cursor: pointer" v-for="people in peoples" v-on:click="peopleChatt(people)">
+      <div id="key" style="cursor: pointer" v-for="people, key in peoples" v-on:click="peopleChatt(people, key)">
         <div class="clearfix">
           <div class="align-block">
             <div class="ml-2 mr-2 align-middle">

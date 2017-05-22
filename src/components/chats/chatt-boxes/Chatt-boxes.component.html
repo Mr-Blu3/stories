@@ -1,12 +1,12 @@
-<section class="chats-rows card-group" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<section class="chats-rows card-group" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="chatBox" v-for="people, key in peoples">
-    <div class="card" v-on:click="resetCompMsg(people, key)">
+    <div class="card" @click="resetCompMsg(people, key)">
       <div class="card-header p-1 rounded-0 bg-blue text-white">
         <p class="float-left m-0 mr-5 ml-1"><small>{{people.name}}</small></p>
 
         <div class="float-right mr-1">
-          <a href="javascript:void(true)" v-bind:class="{'fa-angle-double-down' : people.hideChatBox, 'fa-angle-double-up' : !people.hideChatBox}" v-on:click="hideBox(people)" class="fa text-white mr-1"></a>
-          <a href="javascript:void(true)" v-on:click="remove(people)" class="fa text-white fa-times-circle"></a>
+          <a href="javascript:void(true)" v-bind:class="{'fa-angle-double-down' : people.hideChatBox, 'fa-angle-double-up' : !people.hideChatBox}" @click="hideBox(people)" class="fa text-white mr-1"></a>
+          <a href="javascript:void(true)" @click="remove(people)" class="fa text-white fa-times-circle"></a>
         </div>
       </div>
 
@@ -20,7 +20,7 @@
         </div>
 
         <div class="bg-grey pt-2 pb-2" style="border-top: 1px solid #eceef1">
-          <input :id="key" class="m-auto form-control" v-on:blur="stopFocus($event, key)" @keyup.enter="msg($event.target, people)" type="text" :placeholder="'Send to : '+ people.name">
+          <input :id="keySortRow" ref="text" autofocus @children="people" class="m-auto form-control" @blur="stopFocus($event, key)" @keyup.enter="msg($event.target, people)" type="text" :placeholder="'Send to : '+ people.name">
           <span class="fa fa-long-arrow-right errspan" aria-hidden="true"></span>
         </div>
       </div>
