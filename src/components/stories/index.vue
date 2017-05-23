@@ -3,8 +3,8 @@
     <div class="story-header align-nav">
       <div class="container">
         <ul>
-          <li v-for="filter in navFilters">
-            <a style="cursor: pointer"><p :class="filter.active">{{filter.name}} <i :class="filter.arrow"></i></p></a>
+          <li v-for="navStore in navStores">
+            <a @click="sortColumns(navStore); filterColumns(navStore)" class="pointer"><p :class="navStore.active"> {{ navStore.name }} <i :class="navStore.arrow"></i></p></a>
           </li>
         </ul>
       </div>
@@ -14,21 +14,23 @@
       <div class="container">
         <table class="table bg-white">
           <tbody>
-            <tr v-for="story, key in stories">
+            <tr v-for="story in stories">
               <td id="story-logo"><img v-if="story.logo" class="circleBase" :src="story.logo" /></td>
 
               <td class="text-primary text-center">
                 <strong>
                   <i class="fa ml-1 fa-caret-up align-bottom"></i>
-                  <p class="ml-1 align-top m-0">{{ ++key }}</p>
+                  <p class="ml-1 align-top m-0">{{ story.key }}</p>
                 </strong>
               </td>
 
               <td>
                 <h6 class="align-middle m-2">{{story.headline}} <small>(Ipsum loren.tu)</small></h6>
-                <div v-if="story.iComment" class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;">
+
+                <div v-if="story.iComment && story.iComment.length > 0" class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;">
                     <u>Comments: {{story.iComment.length}}</u> &nbsp; • &nbsp;{{story.iComment[0].date}} From: {{story.iComment[0].name}}, {{story.iComment[0].country}}, {{story.iComment[0].website}} || {{ story.iComment[0].org }}
                 </div>
+
                 <p v-else class="colorGrey m-2 align-block pointer" v-on:click="showComments(story)" style="font-size: 11px;"><u>Be first to send a comment</u></p>
 
                 <div v-bind:class="{slidedown: story.showComments, sliderUp: !story.showComments}">
@@ -41,6 +43,7 @@
                           <td class="align-top"><label class="mr-2">Website: {{comment.website}}</label> </td>
                           <td class="align-top"><label>Country: {{comment.country}}</label></td>
                           <td class="align-top"><label>Network: {{comment.org}}</label></td>
+                          <td class="text-center pointer" @click="removeComment(comment, story)"><i class="fa fa-times" aria-hidden="true"></i></td>
                         </tr>
                         <tr><td colspan="4">Comment: {{comment.comment}}</td></tr>
                       </tbody>

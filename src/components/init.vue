@@ -1,6 +1,6 @@
 <template>
     <div class="row" style="background: grey">
-      <div class="col-10">
+      <div class="col-10 mt-5 mb-5">
         <header-component></header-component>
 
         <section class="text-left body">
@@ -8,7 +8,7 @@
         </section>
       </div>
 
-      <div class="col-2">
+      <div class="col-2 mt-5">
         <chat-component></chat-component>
       </div>
 

@@ -16,23 +16,24 @@ export default  {
   beforeUpdate()
   {
     this.peoples.forEach(data => {
-      if(data === this.focusPerson) return console.log(this.$refs.text)
+      if(data === this.focusPerson) return this.$refs.text
     })
   },
   methods: {
     hideBox: function(people) {
       people.hideChatBox = people.hideChatBox ? false : true;
+      this.resetCompMsg(people);
       this.$emit('hideBodyBox', people)
     },
     remove: function(people) {
-      this.seenMsg = this.seenMsg.filter(data => data.name != people);
+      this.resetCompMsg(people);
       this.$emit('removePeople', people)
     },
 
     msg: function(e_msg, pers) {
       let msg = e_msg.value;
       this.texts.push({textUser: msg, pers: pers});
-
+      this.resetCompMsg(pers);
       setTimeout((msg) => {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
 
@@ -46,12 +47,9 @@ export default  {
       e_msg.value = '';
     },
 
-    resetCompMsg: function(pers) {
-      if(this.person === pers) {
+    resetCompMsg: function(people) {
         this.seenMsgBool = false;
-        this.seenMsg = this.seenMsg.filter(data => data.name != pers);
-        this.$emit('missMsg', this.seenMsg);
-      }
+        this.$emit('resetMsgs', people);
     },
 
     stopFocus: function(person) {

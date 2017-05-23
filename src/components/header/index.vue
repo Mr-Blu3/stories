@@ -21,10 +21,7 @@
     data() {
       return {
         navLists: [
-          {name: 'Stories', url: '/'},
-          {name: 'Jobs', url: 'jobs'},
-          {name: 'Podcast', url: 'podcast'},
-          {name: '•••', url: '#', className: 'dots'}
+          {name: 'Stories', url: '/'}
         ]
       }
     }

@@ -5,18 +5,19 @@
     v-bind:keySortRow="keySortRows"
     @removePeople="removePeople($event)"
     @hideBodyBox="hideBodyBox($event)"
-    @missMsg="missMsgCount($event)">
+    @missMsg="missMsgCount($event)"
+    @resetMsgs="resetMsgs($event)">
   </chat-boxes>
 
   <div class="w-100" id="border-sort">
 
     <sort-rows header="Active Chats"
-     v-bind:missMsgs="missMsgs"
-     v-bind:peoples="activePeople"
-     @keySort="key($event)"
-     @resetMsgs="resetMsgs($event)"
-     @peopleChatt="addSingleChat($event)"
-     @focus="autoFocus($event)">
+       v-bind:missMsgs="missMsgs"
+       v-bind:peoples="activePeople"
+       @keySort="key($event)"
+       @resetMsgs="resetMsgs($event)"
+       @peopleChatt="addSingleChat($event)"
+       @focus="autoFocus($event)">
     </sort-rows>
 
     <sort-rows header="Recent Chats"

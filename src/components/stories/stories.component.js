@@ -6,20 +6,23 @@ export default {
   mounted() {},
   data() {
     return {
-      navFilters: [
-        {name: 'Top', arrow: 'fa fa-caret-down', active: 'active-filter'},
-        {name: 'Recent'},
-        {name: 'Starred'},
-        {name: 'Badges', arrow: 'fa fa-caret-down'}
+      navStores: [
+        {name: 'Top', arrow: 'fa fa-caret-up', active: 'active-filter', sort: 'reverse'},
+        {name: 'Alphabetic', sort: 'sort'},
+        {name: 'Number', sort: 'number' },
+        {name: 'Filter Data', filter: 'default'}
       ],
       stories: MOCK_STORIES,
       commentStore: {},
-      infoSender: {}
+      infoSender: {},
+      storeBool: false,
     }
   },
+
   beforeUpdate() {
     this.$http.get("http://ipinfo.io").then(data => this.infoSender = {country: data.data.country, org: data.data.org });
   },
+
   methods: {
     showComments: function(story) {
       this.stories = this.stories.map(data => {
@@ -30,11 +33,7 @@ export default {
     addComment(story) {
       this.stories = this.stories.map(data => {
         if(data === story) {
-          if(!data.iComment) {
-            data.iComment = [this.triggComment()];
-          } else {
-            data.iComment.unshift(this.triggComment());
-          }
+          !data.iComment ? data.iComment = [this.triggComment()] : data.iComment.unshift(this.triggComment());
         }
 
         return data;
@@ -50,9 +49,6 @@ export default {
       let month = ('0' + (new Date().getMonth() + 1)).slice(-2);
       let year = new Date().getFullYear();
 
-
-      console.log(this.infoSender)
-
       return {
         name: this.commentStore.name,
         comment: this.commentStore.comment,
@@ -62,6 +58,44 @@ export default {
         org: this.infoSender.org
       };
     },
+
+    filterColumns(filter) {
+      if (filter.filter && this.stories.length > 4) return this.stories = this.stories.filter(data => data.key > 10);
+      this.stories = MOCK_STORIES;
+      this.navStores.map(data => data.active = data === filter ? 'active-filter' : '');
+    },
+
+    sortColumns(sort)
+    {
+      this.storeBool = (!this.storeBool) ? true : false;
+      if(sort.arrow) this.navStores[0].arrow = (this.storeBool) ? 'fa fa-caret-down' : 'fa fa-caret-up';
+      this.navStores.map(data => data.active = data === sort ? 'active-filter' : '');
+
+      /*
+      * ToDo: Make Dynamic
+      * */
+
+      if(sort.sort === 'reverse') return this.stories.reverse();
+      if(sort.sort === 'number') return this.stories.sort((a,b) => a.key-b.key)
+      if(sort.sort === 'sort') {
+        this.stories.sort((a, b) => {
+          if (a.headline < b.headline) return -1;
+          if (a.headline > b.headline) return 1;
+          return 0;
+        });
+      }
+    },
+
+    removeComment(comment, story)
+    {
+      this.stories = this.stories.map(data => {
+        if(!data.iComment) return data;
+        data.iComment = data.iComment.filter(data => {return data !== comment});
+        return data;
+      });
+      this.showComments(story);
+    }
+
   },
   computed: {}
 }

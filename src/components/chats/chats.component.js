@@ -71,11 +71,14 @@ export default  {
       this.missMsgs = this.missMsgs.filter(data => {
         return data.name !== person
       });
+      console.log(this.missMsgs)
     },
+
     autoFocus(person)
     {
       this.focusPerson = person;
     },
+
     key(key) {
       this.keySortRows = key;
     }
