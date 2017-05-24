@@ -20,7 +20,7 @@
           </div>
 
           <div class="align-block float-right">
-            <div class="text-center align-middle text-white bg-blue circleBase small align-block" style="height: 20px; width: 20px;" v-for="missMsg in missMsgs" v-if="missMsg.name === people">
+            <div class="text-center align-middle text-white bg-blue circleBase small align-block" style="height: 20px; width: 20px;" v-for="missMsg in missMsgs" v-if="missMsg.name === people && missMsg.missed.length > 0">
               {{missMsg.missed.length}}
             </div>
             <div id="lh" class="align-block ml-1 align-middle mr-3"><i class="fa fa-caret-right"></i></div>

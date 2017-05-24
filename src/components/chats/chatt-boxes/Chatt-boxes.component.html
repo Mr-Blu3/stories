@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div class="card-block" v-if="people.hideChatBox">
+      <div class="card-block" v-show="people.hideChatBox">
         <div id="scr" style="height: 250px; overflow: auto">
           <div v-for="text in texts" v-if="text.pers === people">
             <div class="ml-auto bubble me" v-if="text.textUser"><small>{{text.textUser}}</small></div>

@@ -5,12 +5,7 @@ export default  {
 
   data() {
     return {
-      texts: [],
-      message: '',
-      seenMsgBool: false,
-      seenMsg: [],
-      hideChatBox: {},
-      person: ''
+      texts: [], message: '', seenMsgBool: false, seenMsg: [], hideChatBox: {}, person: ''
     }
   },
   beforeUpdate()
@@ -33,7 +28,7 @@ export default  {
     msg: function(e_msg, pers) {
       let msg = e_msg.value;
       this.texts.push({textUser: msg, pers: pers});
-      this.resetCompMsg(pers);
+
       setTimeout((msg) => {
         let comp = (msg.toUpperCase() === 'hey chris!'.toUpperCase()) ? "I'm Thor!" : 'Ipsum loren absolum';
 
@@ -44,12 +39,16 @@ export default  {
 
       }, 2000, msg);
 
+      this.resetCompMsg(pers);
       e_msg.value = '';
     },
 
     resetCompMsg: function(people) {
+
+      if(this.person === people){
         this.seenMsgBool = false;
         this.$emit('resetMsgs', people);
+      }
     },
 
     stopFocus: function(person) {
@@ -65,9 +64,9 @@ export default  {
           data.missed.push(comp);
         }
       });
+      console.log(this.seenMsg);
       this.$emit('missMsg', this.seenMsg)
     }
   },
   computed: {}
 }
-

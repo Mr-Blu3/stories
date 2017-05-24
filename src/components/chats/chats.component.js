@@ -9,12 +9,7 @@ export default  {
   mounted() {},
   data() {
     return {
-      peoples: this.sort(MOCK_CHATT),
-      activePeople: [],
-      recentChat: [],
-      missMsgs: [],
-      focusPerson: {},
-      keySortRows: 0,
+      peoples: this.sort(MOCK_CHATT), activePeople: [], recentChat: [], missMsgs: [], focusPerson: {}, keySortRows: 0,
     };
   },
   methods: {
@@ -44,7 +39,7 @@ export default  {
 
     hideBodyBox: function(person) {
       this.activePeople = this.activePeople.map(data => {
-        if(data == person) data = person;
+        if(data === person) data = person;
         return data;
       });
     },
@@ -67,11 +62,13 @@ export default  {
       if(checkBool) this.recentChat.unshift(person);
     },
 
-    resetMsgs(person) {
-      this.missMsgs = this.missMsgs.filter(data => {
-        return data.name !== person
+    resetMsgs(people) {
+      this.missMsgs = this.missMsgs.map(data => {
+        if(data.name === people) {
+          data.missed = [];
+        }
+        return data;
       });
-      console.log(this.missMsgs)
     },
 
     autoFocus(person)
