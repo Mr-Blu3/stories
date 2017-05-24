@@ -44,11 +44,8 @@ export default  {
     },
 
     resetCompMsg: function(people) {
-
-      if(this.person === people){
-        this.seenMsgBool = false;
-        this.$emit('resetMsgs', people);
-      }
+      this.seenMsgBool = false;
+      this.$emit('resetMsgs', people);
     },
 
     stopFocus: function(person) {
