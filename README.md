@@ -1,4 +1,4 @@
-# y
+# Stories
 
 > Social stories
 
